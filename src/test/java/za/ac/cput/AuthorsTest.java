@@ -7,15 +7,20 @@
  */
 
 package za.ac.cput;
-
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AuthorsTest {
 
+    public String message = "lunga tshila";
+    Authors junitMessage = new Authors(message, "lunga");
     Authors fail;
+
+    //Object Identity
+    //Object Equality
     @Test
     public void testBookIdentity(){
         Authors book = new Authors("The Art of Hustling", "Dj SBU");
@@ -43,9 +48,9 @@ class AuthorsTest {
         assertEquals(book4.hashCode(), -668276722);
     }
 
-
+    //Failing Test
     @Test
-    public void failExampleTest() {
+    public void failingTest() {
         if(fail == null){
             Assertions.fail("fail is null");
         }
@@ -55,5 +60,19 @@ class AuthorsTest {
         } catch (IllegalArgumentException e) {
             e.getMessage();
         }
+    }
+
+
+    //Disabling test using @Disabled annotation
+    @Disabled("Do ")
+    @Test
+    public void testJUnitMessage() {
+        assertEquals(message, junitMessage.printTitle());
+    }
+
+    @Test
+    public void testJUnitHiMessage() {
+        message="The author is " +message;
+        assertEquals(message, junitMessage.printTitleFor());
     }
 }

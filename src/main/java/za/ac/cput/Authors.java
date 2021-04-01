@@ -11,7 +11,7 @@ package za.ac.cput;
 public class Authors {
 
 
-    private final String title, author;
+    private  String title, author;
 
     public Authors(String title, String author) {
         if (title == null || author == null)
@@ -58,5 +58,21 @@ public class Authors {
         if (x < 0) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public String printTitle(){
+
+        System.out.println(title);
+
+        return title;
+    }
+
+    public String printTitleFor(){
+
+        title="The author is "+title;
+
+        System.out.println(title);
+
+        return title;
     }
 }
